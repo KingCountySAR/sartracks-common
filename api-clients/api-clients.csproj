@@ -4,11 +4,13 @@
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>SarData.Common.Apis</RootNamespace>
     <AssemblyName>SarData.Common.Apis</AssemblyName>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityModel" Version="3.10.5" />
-    <PackageReference Include="Refit.HttpClientFactory" Version="4.6.58" />
+    <PackageReference Include="IdentityModel" Version="3.10.6" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="4.6.90" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 
 </Project>
