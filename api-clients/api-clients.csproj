@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <PackageReference Include="IdentityModel" Version="3.10.6" />
-    <PackageReference Include="Refit.HttpClientFactory" Version="4.6.90" />
+    <PackageReference Include="Refit.HttpClientFactory" Version="4.6.99" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 
