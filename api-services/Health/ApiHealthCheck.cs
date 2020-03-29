@@ -1,10 +1,11 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using SarData.Common.Apis.Health;
 
-namespace SarData.Common.Apis.Health
+namespace SarData.Server.Apis.Health
 {
   class ApiHealthCheck<TApi> : IHealthCheck where TApi : IHealthDependencyApi
   {

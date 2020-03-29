@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Refit;
+﻿using Refit;
 using System.Threading.Tasks;
 
 namespace SarData.Common.Apis.Health
