@@ -7,13 +7,13 @@ namespace SarData.Logging
 {
   public static class LoggingExtensions
   {
-    public static ILoggingBuilder AddSarDataLogging(this ILoggingBuilder builder, string contentRoot)
+    public static ILoggingBuilder AddSarDataLogging(this ILoggingBuilder builder, string filesRoot, string fileStem)
     {
       Log.Logger = new LoggerConfiguration()
         .Enrich.FromLogContext()
         .MinimumLevel.Debug()
         .WriteTo.Console()
-        .WriteTo.RollingFile(Path.Combine(contentRoot, "log-{Date}.txt"), restrictedToMinimumLevel: LogEventLevel.Information)
+        .WriteTo.RollingFile(Path.Combine(filesRoot, "logs", fileStem + "-{Date}.txt"), restrictedToMinimumLevel: LogEventLevel.Information)
         .CreateLogger();
 
       return builder

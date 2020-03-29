@@ -1,9 +1,10 @@
 ﻿using System.Threading.Tasks;
 using Refit;
+using SarData.Common.Apis.Health;
 
 namespace SarData.Common.Apis.Messaging
 {
-  public interface IMessagingApi
+  public interface IMessagingApi : IHealthDependencyApi
   {
     [Post("/send/email")]
     Task SendEmail([Body] SendEmailRequest email);

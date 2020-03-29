@@ -3,7 +3,9 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Refit;
+using SarData.Common.Apis.Health;
 
 namespace SarData.Common.Apis
 {
@@ -27,6 +29,15 @@ namespace SarData.Common.Apis
           }).Wait();
         })
         .SetHandlerLifetime(TimeSpan.FromMinutes(2));
+    }
+
+    public static void ConfigureApi<TApi>(this IServiceCollection services, string apiSettingName, IConfiguration config, IHealthChecksBuilder healthChecks, HealthStatus failStatus) where TApi : class, IHealthDependencyApi
+    {
+      ConfigureApi<TApi>(services, apiSettingName, config);
+      healthChecks.Add(new HealthCheckRegistration(
+          (apiSettingName ?? "unknown") + "-api",
+          sp => new ApiHealthCheck<TApi>(sp.GetRequiredService<TApi>()),
+          failStatus, new string[0]));
     }
   }
 }
