@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using Refit;
 using SarData.Common.Apis.Health;
 
@@ -17,7 +18,12 @@ namespace SarData.Common.Apis.Messaging
   {
     public static Task SendEmail(this IMessagingApi api, string to, string subject, string message)
     {
-      return api.SendEmail(new SendEmailRequest { To = to, Subject = subject, Message = message });
+      return SendEmail(api, to, subject, message, null);
+    }
+
+    public static Task SendEmail(this IMessagingApi api, string to, string subject, string message, List<MessageAttachment> attachments)
+    {
+      return api.SendEmail(new SendEmailRequest { To = to, Subject = subject, Message = message, Attachments = attachments });
     }
   }
 }

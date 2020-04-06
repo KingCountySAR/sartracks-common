@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace SarData.Common.Apis.Messaging
 {
@@ -14,5 +15,7 @@ namespace SarData.Common.Apis.Messaging
 
     [Required]
     public string Message { get; set; }
+
+    public List<MessageAttachment> Attachments { get; set; }
   }
 }
