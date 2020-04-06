@@ -15,8 +15,8 @@ namespace SarData.Common.Apis
     public DefaultTokenClient(IConfiguration config)
     {
       authority = config["auth:authority"];
-      clientId = config["auth:client_id"];
-      clientSecret = config["auth:client_secret"];
+      clientId = config["apis:client_id"];
+      clientSecret = config["apis:client_secret"];
     }
 
     public async Task<string> GetToken(string scope)

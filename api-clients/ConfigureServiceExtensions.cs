@@ -11,8 +11,8 @@ namespace SarData.Common.Apis
   {
     public static void ConfigureApi<TApi>(this IServiceCollection services, string apiSettingName, IConfiguration config) where TApi : class
     {
-      Uri apiUrl = new Uri(config["apis:" + apiSettingName + ":url"]);
-      string scope = config["apis:" + apiSettingName + ":scope"];
+      Uri apiUrl = new Uri(config["apis:" + apiSettingName]);
+      string scope = config["apis:scope"];
       var client = new HttpClient();
 
       services.AddRefitClient<TApi>()
